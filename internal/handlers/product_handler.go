@@ -68,7 +68,7 @@ func ProductPost(w http.ResponseWriter, r *http.Request) {
 func ProductPut(w http.ResponseWriter, r *http.Request) {
 	updatedProduct := models.Product{}
 	err := json.NewDecoder(r.Body).Decode(&updatedProduct)
-	if err != nil || updatedProduct.ID == nil || updatedProduct.Name == "" {
+	if err != nil || updatedProduct.ID == nil {
 		http.Error(w, "Invalid input", http.StatusBadRequest)
 		return
 	}
